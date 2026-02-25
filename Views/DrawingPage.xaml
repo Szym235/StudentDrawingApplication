@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SystemOfDrawingStudentForAnswering.Views.DrawingPage"
+             xmlns:partials="clr-namespace:SystemOfDrawingStudentForAnswering.ViewsPartials"
+             xmlns:viewModels="clr-namespace:SystemOfDrawingStudentForAnswering.ViewModels"
+             Title="Losowanie"
+             x:DataType="viewModels:AllClasses">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <partials:NavigationBar Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0"/>
+        <VerticalStackLayout Grid.Column="0" Grid.Row="1" StyleClass="LeftPanel">
+            <HorizontalStackLayout>
+                <partials:ClassPickerView/>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout>
+                <Label Text="Szczęśliwy numerek: "/>
+                <Label Text="{Binding LuckyNumber}"/>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout>
+                <Button Text="Losuj ucznia"
+                    Command="{Binding DrawStudentCommand}"/>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout>
+                <Label Text="{Binding DrawedStudent.Name}"/>
+                <Label Text="{Binding DrawedStudent.Surname}"/>
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+        <partials:ClassView Grid.Column="1" Grid.Row="1"/>
+    </Grid>
+</ContentPage>
