@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SystemOfDrawingStudentForAnswering.Views.ManageStudentsPage"
+             xmlns:partials="clr-namespace:SystemOfDrawingStudentForAnswering.ViewsPartials"
+             xmlns:viewModels="clr-namespace:SystemOfDrawingStudentForAnswering.ViewModels"
+             xmlns:models="clr-namespace:SystemOfDrawingStudentForAnswering.Models"
+             Title="Zarządzanie"
+             x:DataType="viewModels:AllClasses">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <partials:NavigationBar Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0"/>
+        <VerticalStackLayout Grid.Column="0" Grid.Row="1" StyleClass="LeftPanel">
+            <HorizontalStackLayout>
+                <partials:ClassPickerView/>
+                <Button Text="Usuń wybraną klasę"
+                    Command="{Binding DeleteClassCommand}"/>
+            </HorizontalStackLayout>
+            
+            <HorizontalStackLayout>
+                <Button                     
+                Text="Wczytaj"
+                Command="{Binding LoadClassCommand}"/>
+                <Button                     
+                Text="Zapisz"
+                Command="{Binding SaveClassCommand}"/>
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout>
+                <Label
+                        Text="Nowa klasa"/>
+                <Entry
+                        x:Name="NewClassNameEntry"
+                        Placeholder="Nazwa"
+                        Text="{Binding NewClassNameFromEntry}"/>
+                <Button
+                Text="Dodaj"
+                Command="{Binding AddClassCommand}"/>
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout>
+                <Label
+                Text="Nowy uczeń"/>
+                <Entry
+                x:Name="NewStudentNameEntry"
+                Placeholder="Imię"
+                Text="{Binding NewStudentNameFromEntry}"/>
+                <Entry
+                x:Name="NewStudentSurnameEntry"
+                Placeholder="Nazwisko"
+                Text="{Binding NewStudentSurnameFromEntry}"/>
+                <Button
+                Text="Dodaj"
+                Command="{Binding AddStudentCommand}"/>
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout>
+                <Label
+                Text="Edytuj ucznia"/>
+                <Entry
+                x:Name="NameEntry"
+                Placeholder="Imię"
+                Text="{Binding EditedStudentNameFromEntry}"/>
+                <Entry
+                x:Name="SurnameEntry"
+                Placeholder="Nazwisko"
+                Text="{Binding EditedStudentSurnameFromEntry}"/>
+                <Button
+                Text="Edytuj"
+                Command="{Binding EditStudentCommand}"/>
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+        <partials:ClassViewWithRemoveAndEdit Grid.Column="1" Grid.Row="1"/>
+    </Grid>
+</ContentPage>

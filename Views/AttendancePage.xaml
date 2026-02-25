@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SystemOfDrawingStudentForAnswering.Views.AttendancePage"
+             xmlns:partials="clr-namespace:SystemOfDrawingStudentForAnswering.ViewsPartials"
+             Title="Obecność">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <partials:NavigationBar Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0"/>
+        <VerticalStackLayout Grid.Column="0" Grid.Row="1" StyleClass="LeftPanel">
+            <HorizontalStackLayout>
+                <partials:ClassPickerView/>
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+
+        <partials:ClassViewForAttendance Grid.Column="1" Grid.Row="1"/>
+    </Grid>
+</ContentPage>

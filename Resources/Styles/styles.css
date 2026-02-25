@@ -1,0 +1,56 @@
+﻿.appShell {
+    -maui-shell-background: #2A2835;
+    -maui-shell-title: #FFFFFF;
+}
+
+.LeftPanel {
+    background-color: #2A2835;
+    padding: 10;
+}
+
+.LeftPanel > HorizontalStackLayout {
+    margin: 20 0 20 0;
+}
+
+.LeftPanel label, .LeftPanel Entry, .LeftPanel Picker, .LeftPanel button{
+    font-size: 20;
+}
+
+HorizontalStackLayout *{
+    margin: 0 5;
+}
+
+^contentpage {
+    background-color: #d8d6f8;
+}
+
+#NavigationBar {
+    padding: 10;
+    background-color: white;
+    color: black;
+}
+
+#NavigationBar Button{
+    font-family: Arial;
+    color: black;
+}
+
+#ClassView, #ClassViewForAttendance, #ClassViewWithRemoveAndEdit{
+    background-color: white;
+    margin: 20;
+    padding: 20;
+}
+
+#ClassView > VerticalStackLayout > Label, #ClassViewForAttendance > VerticalStackLayout > Label, #ClassViewWithRemoveAndEdit > VerticalStackLayout > Label {
+    color: black;
+    font-size: 30;
+    margin-bottom: 20;
+    font-family: 'Book Antiqua';
+}
+
+#StudentView *, #StudentViewForAttendance *, #StudentViewWithRemoveAndEdit*{
+    font-size: 20;
+    color: black;
+    margin: 0 30 0 10;
+    padding: 0;  
+}

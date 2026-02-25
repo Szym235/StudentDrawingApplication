@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="SystemOfDrawingStudentForAnswering.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:SystemOfDrawingStudentForAnswering"
+    xmlns:views="clr-namespace:SystemOfDrawingStudentForAnswering.Views"
+    xmlns:partials="clr-namespace:SystemOfDrawingStudentForAnswering.ViewsPartials"
+    Shell.FlyoutBehavior="Disabled"
+    Title="Losowanie uczniów"
+    StyleClass="appShell">
+    <ShellContent
+        Title="Attendance"
+        ContentTemplate="{DataTemplate views:AttendancePage}"
+        Route="AttendancePage" />
+
+    <ShellContent
+        Title="Drawing"
+        ContentTemplate="{DataTemplate views:DrawingPage}"
+        Route="DrawingPage" />
+
+    <ShellContent
+        Title="Manage"
+        ContentTemplate="{DataTemplate views:ManageStudentsPage}"
+        Route="ManageStudentsPage" />
+
+</Shell>
