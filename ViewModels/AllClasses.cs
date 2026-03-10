@@ -39,8 +39,8 @@ namespace SystemOfDrawingStudentForAnswering.ViewModels
         [RelayCommand]
         private void AddStudent()
         {
-            if ((NewStudentNameFromEntry != null && NewStudentNameFromEntry != "") &&
-                (NewStudentSurnameFromEntry != null && NewStudentSurnameFromEntry != ""))
+            if ((NewStudentNameFromEntry != null && NewStudentNameFromEntry.Replace(" ", "") != "") &&
+                (NewStudentSurnameFromEntry != null && NewStudentSurnameFromEntry.Replace(" ", "") != ""))
             {
                 if (ClassFromPicker != null)
                 {
@@ -62,7 +62,7 @@ namespace SystemOfDrawingStudentForAnswering.ViewModels
         [RelayCommand]
         private void AddClass()
         {
-            if (NewClassNameFromEntry != null && NewClassNameFromEntry != "")
+            if (NewClassNameFromEntry != null && NewClassNameFromEntry.Replace(" ", "") != "")
             {
                 Class newClass = new Class(NewClassNameFromEntry);
                 Classes.Add(newClass);
@@ -169,7 +169,7 @@ namespace SystemOfDrawingStudentForAnswering.ViewModels
             }
             if (potentialWinners.Count == 0)
             {
-                DrawedStudent = new Student("Brak uczniów możłiwych do wylosowania!", "");
+                DrawedStudent = new Student("Brak uczniów możliwych do wylosowania!", "");
                 return;
             }
             Random random = new Random();
