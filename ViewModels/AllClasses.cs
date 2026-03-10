@@ -40,16 +40,22 @@ namespace SystemOfDrawingStudentForAnswering.ViewModels
         private void AddStudent()
         {
             if ((NewStudentNameFromEntry != null && NewStudentNameFromEntry != "") &&
-                (NewStudentSurnameFromEntry != null && NewStudentSurnameFromEntry != "") &&
-                ClassFromPicker != null)
+                (NewStudentSurnameFromEntry != null && NewStudentSurnameFromEntry != ""))
             {
-                ClassFromPicker.Students.Add(new Student(NewStudentNameFromEntry, NewStudentSurnameFromEntry));
-                NewStudentNameFromEntry = string.Empty;
-                NewStudentSurnameFromEntry = string.Empty;
+                if (ClassFromPicker != null)
+                {
+                    ClassFromPicker.Students.Add(new Student(NewStudentNameFromEntry, NewStudentSurnameFromEntry));
+                    NewStudentNameFromEntry = string.Empty;
+                    NewStudentSurnameFromEntry = string.Empty;
+                }
+                else
+                {
+                    App.Current.MainPage.DisplayAlert("Błąd", "Nie wybrano klasy!", "OK");
+                }
             }
             else
             {
-                App.Current.MainPage.DisplayAlert("Error", "You must enter all student's data", "OK");
+                App.Current.MainPage.DisplayAlert("Błąd", "Nie wpisano wszystkich danych ucznia!", "OK");
             }
         }
 
@@ -65,7 +71,7 @@ namespace SystemOfDrawingStudentForAnswering.ViewModels
             }
             else
             {
-                App.Current.MainPage.DisplayAlert("Error", "You must enter class name", "OK");
+                App.Current.MainPage.DisplayAlert("Błąd", "Nie wpisano nazwy klasy!", "OK");
             }
         }
 
@@ -86,7 +92,7 @@ namespace SystemOfDrawingStudentForAnswering.ViewModels
                 streamWriter.WriteLine(student.Name + "," + student.Surname + "," + student.IsPresent + "," + student.DrawingProtection);
             }
             streamWriter.Close();
-            App.Current.MainPage.DisplayAlert("Saved", ClassFromPicker.Name + " was saved", "OK");
+            App.Current.MainPage.DisplayAlert("Zapis", ClassFromPicker.Name + " została zapisana", "OK");
         }
 
         [RelayCommand]
@@ -115,7 +121,7 @@ namespace SystemOfDrawingStudentForAnswering.ViewModels
                 }
                 catch (Exception ex)
                 {
-                    App.Current.MainPage.DisplayAlert("Error", "File is wrong format", "OK");
+                    App.Current.MainPage.DisplayAlert("Błąd", "Zły format pliku!", "OK");
                     return;
                 }
                 Classes.Add(loadedClass);
@@ -163,7 +169,7 @@ namespace SystemOfDrawingStudentForAnswering.ViewModels
             }
             if (potentialWinners.Count == 0)
             {
-                DrawedStudent = new Student("There is no student to choose from!", "");
+                DrawedStudent = new Student("Brak uczniów możłiwych do wylosowania!", "");
                 return;
             }
             Random random = new Random();

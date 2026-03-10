@@ -41,7 +41,7 @@ HorizontalStackLayout *{
     padding: 20;
 }
 
-#ClassView Label, #ClassViewForAttendance Label, #ClassViewWithRemoveAndEdit Label {
+#ClassView Label, #ClassViewForAttendance Label, #ClassViewWithRemoveAndEdit Label{
     color: black;
     font-size: 30;
     margin-bottom: 20;

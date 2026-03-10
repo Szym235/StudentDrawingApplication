@@ -8,7 +8,7 @@
              StyleId="ClassView"
              x:DataType="viewModels:AllClasses">
     <ScrollView>
-        <VerticalStackLayout>
+    <VerticalStackLayout>
         <Label Text="{Binding ClassFromPicker.Name}"/>
         <ListView ItemsSource="{Binding ClassFromPicker.Students}">
             <ListView.ItemTemplate>
